@@ -96,6 +96,7 @@ class Dev(Configuration):
       'crispy_forms',
       'crispy_bootstrap5',
       'debug_toolbar',
+      'rest_framework',
   ]
   INTERNAL_IPS = ["192.168.10.31", "192.168.11.136", "192.168.10.31", "192.168.10.31"]
   MIDDLEWARE = [
