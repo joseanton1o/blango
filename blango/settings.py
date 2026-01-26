@@ -27,7 +27,13 @@ class Dev(Configuration):
 
   # SECURITY WARNING: keep the secret key used in production secret!
   SECRET_KEY = 'django-insecure-&!=9y436&^-bc$qia-mxngyf&xx)@ct)8lu@)=qxg_07-=z01w'
-
+  REST_FRAMEWORK = {
+      "DEFAULT_AUTHENTICATION_CLASSES": [
+          "rest_framework.authentication.BasicAuthentication",
+          "rest_framework.authentication.SessionAuthentication",
+          "rest_framework.authentication.TokenAuthentication",
+      ]
+  }
   # SECURITY WARNING: don't run with debug turned on in production!
   DEBUG = values.BooleanValue(True)
   PASSWORD_HASHERS = [
@@ -97,6 +103,7 @@ class Dev(Configuration):
       'crispy_bootstrap5',
       'debug_toolbar',
       'rest_framework',
+      'rest_framework.authtoken',
   ]
   INTERNAL_IPS = ["192.168.10.31", "192.168.11.136", "192.168.10.31", "192.168.10.31"]
   MIDDLEWARE = [
