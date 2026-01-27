@@ -2,6 +2,11 @@ from rest_framework import serializers
 from blog.models import Post, Tag, Comment
 from blango_auth.models import User
 
+class UserSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = ["first_name", "last_name", "email"]
+
 class TagField(serializers.SlugRelatedField):
     def to_internal_value(self, data):
         try:
@@ -51,7 +56,3 @@ class PostDetailSerializer(PostSerializer):
 
         return instance
 
-class UserSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = User
-        fields = ["first_name", "last_name", "email"]
