@@ -140,6 +140,7 @@ class Dev(Configuration):
         'rest_framework.authtoken',
         'drf_yasg',
         'django_filters',
+        'versatileimagefield',
     ]
     INTERNAL_IPS = ["192.168.10.31", "192.168.11.136", "192.168.10.31", "192.168.10.31"]
     MIDDLEWARE = [
@@ -233,6 +234,9 @@ class Dev(Configuration):
     CRISPY_TEMPLATE_PACK = "bootstrap5"
     EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
     ACCOUNT_ACTIVATION_DAYS = 7
+
+    MEDIA_ROOT = BASE_DIR / "media"
+    MEDIA_URL = "/media/"
 class Prod(Dev):
     DEBUG = False
     SECRET_KEY = values.SecretValue()
